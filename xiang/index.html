@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>庠庠抽籤系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">返回</button>
+    
+    <h1>庠庠心情抽籤機</h1>
+
+    <div id="draw-container">
+        <div id="display-area">
+            <img src="question.png" alt="?" id="mood-image" width=200px>
+        </div>
+            
+        <p id="loading-text" style="display:none;">正在觀測庠庠的氣場...</p>
+            
+        <button id="draw-btn">窺探命運</button>
+    </div>    
+    <div class="footer">
+        <small>※ 抽籤結果僅供參考，請隨時注意庠庠的臉色</small>
+    </div>
+    <div class="addition">
+        <div class="info-card">
+            <p id="day-status">正在載入日期資訊...</p>
+            <hr>
+            <p id="class-status">正在計算補習倒數...</p>
+    </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
