@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 背景圖片設定 */
+    background: url('../background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Microsoft JhengHei', sans-serif;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#bamboo-tube {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+/* 搖晃動畫 */
+.shake {
+    animation: shake-animation 0.5s infinite;
+}
+
+@keyframes shake-animation {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+.fortune-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 5px double #8b0000;
+    background-color: #fff5f5;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #8b0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* 返回按鈕：左上角固定 */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

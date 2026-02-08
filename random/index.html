@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神準！命運抽籤筒</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="history.back()">返回</button>
+
+    <div class="container">
+        <h1>命運的大門為你而開</h1>
+        
+        <div id="draw-area">
+            <img src="ltbe.png" id="bamboo-tube" alt="籤筒" onclick="drawFortune()">
+            <div id="result-container" class="hidden">
+                <div class="fortune-card">
+                    <h2 id="fortune-title"></h2>
+                    <p id="fortune-text"></p>
+                    <button onclick="reset()">再試一次</button>
+                </div>
+            </div>
+        </div>
+        
+        <p class="hint">按一下籤筒，領取你的天命</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
