@@ -1,0 +1,172 @@
+/* 引入特殊字體 */
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+body {
+    /* 設定背景圖 */
+    background: url('../background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Microsoft JhengHei", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* 磨砂玻璃卡片 */
+.card {
+    background: rgba(255, 255, 255, 0.2); /* 半透明白色 */
+    backdrop-filter: blur(15px); /* 磨砂核心：模糊背景 */
+    -webkit-backdrop-filter: blur(15px); /* 為了 Safari 瀏覽器 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 邊框亮一點，質感更好 */
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    color: #fff; /* 因為背景可能有顏色，文字改白色比較安全 */
+}
+
+/* --- 定義「一條一條出現」的動畫 --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 讓卡片內的元素預設透明 */
+.card > *, .content > *, .footer > * {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 設定每個元素出現的延遲時間 (Delay) */
+.card p:first-child { animation-delay: 0.2s; } /* 榮茂礁綠 */
+.card h1           { animation-delay: 0.4s; } /* 林神秘人 */
+.card .tagline     { animation-delay: 0.6s; } /* 乾飯人 */
+.card hr           { animation-delay: 0.8s; } 
+.card h3:nth-of-type(1) { animation-delay: 1.0s; } /* 關於我標題 */
+.special-text      { animation-delay: 1.2s; } /* 彰中萬歲 */
+.card h3:nth-of-type(2) { animation-delay: 1.4s; } /* 技能標題 */
+.card ul           { animation-delay: 1.6s; } /* 列表 */
+.card .footer      { animation-delay: 1.8s; } /* 頁尾 */
+
+/* 特殊字體樣式 */
+.special-text {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 1.5rem;
+    color: #ffeb3b; /* 亮黃色在背景深色時很顯眼 */
+    display: block;
+    margin: 10px 0;
+}
+
+ul { text-align: left; }
+hr { border: 0; border-top: 1px solid rgba(255,255,255,0.3); margin: 20px 0; }
+a { color: #FF0080; text-decoration: none; margin: 0 5px; }
+
+/* 返回按鈕：左上角固定 */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 設定大容器並排 */
+.main-container {
+    display: flex;
+    gap: 20px; /* 兩個容器之間的間距 */
+    align-items: flex-start;
+    flex-wrap: wrap; /* 手機版自動換行 */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 毒雞湯容器樣式 */
+.soup-container {
+    background: rgba(0, 0, 0, 0.4); /* 深色半透明，跟左邊做出區隔 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 300px;
+    color: #ffccbc; /* 淡淡的橘紅色，更有毒性(誤) */
+    
+    /* 同樣加上載入動畫 */
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 2.0s; /* 比左邊卡片晚一點點出現 */
+}
+
+.soup-container h3 {
+    color: #ff5252;
+    margin-top: 0;
+}
+
+.soup-content {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 讓手機版時兩個容器不要太擠 */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 荒野雷隊友專屬樣式 */
+#edgar-rank {
+    list-style: none; /* 去掉醜醜的黑點 */
+    background: rgba(142, 68, 173, 0.3); /* 淡淡的紫色背景 */
+    border: 1px solid #9b59b6;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #e0aaff;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #9b59b6;
+}
+
+/* 滑鼠移上去的特效：放大 + 震動 + 發光 */
+#edgar-rank:hover {
+    background: rgba(142, 68, 173, 0.6);
+    transform: scale(1.1) rotate(-2deg);
+    color: #fff;
+    box-shadow: 0 0 15px #bf55ec, 0 0 5px #fff;
+    animation: shake 0.5s infinite; /* 瘋狂震動 */
+}
+
+/* 震動動畫：模擬艾德加準備放大招的感覺 */
+@keyframes shake {
+    0% { transform: scale(1.1) translate(1px, 1px) rotate(0deg); }
+    10% { transform: scale(1.1) translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: scale(1.1) translate(-3px, 0px) rotate(1deg); }
+    30% { transform: scale(1.1) translate(3px, 2px) rotate(0deg); }
+    40% { transform: scale(1.1) translate(1px, -1px) rotate(1deg); }
+    50% { transform: scale(1.1) translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: scale(1.1) translate(-3px, 1px) rotate(0deg); }
+    70% { transform: scale(1.1) translate(3px, 1px) rotate(-1deg); }
+    80% { transform: scale(1.1) translate(-1px, -1px) rotate(1deg); }
+    90% { transform: scale(1.1) translate(1px, 2px) rotate(0deg); }
+    100% { transform: scale(1.1) translate(1px, -2px) rotate(-1deg); }
+}
